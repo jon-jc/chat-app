@@ -1,7 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { Channel, Server, MemberRole, ChannelType } from "@prisma/client";
-import { Edit2, HashIcon, Mic2Icon, Trash2, Video } from "lucide-react";
+import { Edit2, HashIcon, Lock, Mic, Trash2, Video } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
 import { ActionTootip } from "../action-tooltip";
 
@@ -13,7 +13,7 @@ interface ServerChannelProps {
 
 const iconMap = {
   [ChannelType.TEXT]: HashIcon,
-  [ChannelType.AUDIO]: Mic2Icon,
+  [ChannelType.AUDIO]: Mic,
   [ChannelType.VIDEO]: Video,
 };
 
@@ -53,13 +53,16 @@ export const ServerChannel = ({
             hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300 transition"
             />
           </ActionTootip>
-          <ActionTootip label="Edit">
+          <ActionTootip label="Delete">
             <Trash2
               className="hidden group-hover:block w-4 h-4 text-slate-500
             hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300 transition"
             />
           </ActionTootip>
         </div>
+      )}
+      {channel.name === "general" && (
+        <Lock className="ml-auto w-3 h-3 text-slate-500 dark:text-slate-400" />
       )}
     </button>
   );

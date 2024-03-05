@@ -30,7 +30,7 @@ export const ServerSection = ({
       {role !== MemberRole.GUEST && sectionType === "channels" && (
         <ActionTootip label="Create Channel" side="top">
           <button
-            onClick={() => onOpen("createChannel")}
+            onClick={() => onOpen("createChannel", { channelType })}
             className="text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 transition"
           >
             <PlusCircleIcon className="w-5 h-5" />
@@ -38,7 +38,7 @@ export const ServerSection = ({
         </ActionTootip>
       )}
       {role === MemberRole.ADMIN && sectionType === "members" && (
-        <ActionTootip label="Create Channel" side="top">
+        <ActionTootip label="Manage Members" side="top">
           <button
             onClick={() => onOpen("members", { server })}
             className="text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 transition"
