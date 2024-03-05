@@ -56,7 +56,10 @@ export const ServerHeader = ({ server, role }: ServerHeaderProps) => {
           </DropdownMenuItem>
         )}
         {isAdmin && (
-          <DropdownMenuItem className="py-2 px-3 text-sm cursor-pointer">
+          <DropdownMenuItem
+            onClick={() => onOpen("editServer", { server })}
+            className="py-2 px-3 text-sm cursor-pointer"
+          >
             <Settings2 className="w-4 h-4 mr-auto" />
             Server Settings
           </DropdownMenuItem>
