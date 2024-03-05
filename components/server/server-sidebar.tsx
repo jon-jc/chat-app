@@ -5,6 +5,7 @@ import { ChannelType, MemberRole } from "@prisma/client";
 import { ServerHeader } from "./server-header";
 import { ScrollArea } from "../ui/scroll-area";
 import { ServerSearch } from "./server-search";
+import { ServerSection } from "./server-section";
 import {
   HashIcon,
   Mic2,
@@ -12,6 +13,7 @@ import {
   ShieldPlusIcon,
   BadgePlusIcon,
 } from "lucide-react";
+import { Separator } from "../ui/separator";
 
 interface ServerSidebarProps {
   serverId: string;
@@ -126,6 +128,17 @@ export const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
             ]}
           />
         </div>
+        <Separator className="bg-slate-200 dark:bg-slate-700 rounded-md my-2" />
+        {!!textChannels?.length && (
+          <div className="mb-2">
+            <ServerSection
+              sectionType="channels"
+              channelType={ChannelType.TEXT}
+              role={role}
+              label="Text Channels"
+            />
+          </div>
+        )}
       </ScrollArea>
     </div>
   );
