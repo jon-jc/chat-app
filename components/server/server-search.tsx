@@ -1,0 +1,80 @@
+"use client";
+
+import { SearchCheckIcon } from "lucide-react";
+import { useState } from "react";
+import {
+  CommandDialog,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "../ui/command";
+
+interface ServerSearchProps {
+  data: {
+    label: string;
+    type: "channel" | "member";
+    data:
+      | {
+          icon: React.ReactNode;
+          name: string;
+          id: string;
+        }[]
+      | undefined;
+  }[];
+}
+
+export const ServerSearch = ({ data }: ServerSearchProps) => {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <>
+      <button
+        onClick={() => setOpen(true)}
+        className="group px-2 py-2 rounded-md
+    flex items-center gap-x-2 w-full
+    hover:bg-slate-700/10 dark:hover:bg-slate-700/50 transition"
+      >
+        <p
+          className="font-semibold text-sm text-slate-400 dark:text-slate-400
+        group-hover:text-slate-500 dark:group-hover:text-slate-500 transition
+        "
+        >
+          Search
+        </p>
+        <SearchCheckIcon className="w-5 h-5 text-slate-500 dark:text-slate-400" />
+        <kbd
+          className="pointer-events-none inline-flex h-5
+        select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono
+        text-[10px] font-medium text-muted-foreground ml-auto"
+        >
+          <span className="text-xs">Ctrl</span>K
+        </kbd>
+      </button>
+
+      <CommandDialog open={open} onOpenChange={setOpen}>
+        <CommandInput placeholder="Search all members and channels" />
+        <CommandEmpty>No results found</CommandEmpty>
+        {data.map(({ label, type, data }) => {
+          if (!data?.length) return null;
+
+          return (
+            <CommandGroup key={label} heading={label}>
+              {data?.map(({ id, icon, name }) => {
+                return (
+                  <CommandItem key={id}>
+                    {icon}
+                    <span>{name}</span>
+                  </CommandItem>
+                );
+              })}
+            </CommandGroup>
+          );
+        })}
+      </CommandDialog>
+    </>
+  );
+};
+
+export default ServerSearch;
