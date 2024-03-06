@@ -4,7 +4,7 @@ import { Channel, Server, MemberRole, ChannelType } from "@prisma/client";
 import { Edit2, HashIcon, Lock, Mic, Trash2, Video } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
 import { ActionTootip } from "../action-tooltip";
-import { useModal } from "@/hooks/use-modal-store";
+import { ModalType, useModal } from "@/hooks/use-modal-store";
 
 interface ServerChannelProps {
   channel: Channel;
@@ -29,9 +29,18 @@ export const ServerChannel = ({
 
   const Icon = iconMap[channel.type];
 
+  const onClick = () => {
+    router.push(`/servers/${params?.serverId}/channels/${channel.id}`);
+  };
+
+  const onAction = (event: React.MouseEvent, action: ModalType) => {
+    event.stopPropagation();
+    onOpen(action, { server, channel });
+  };
+
   return (
     <button
-      onClick={() => {}}
+      onClick={onClick}
       className={cn(
         "group px-2 py-2 rounded-md flex items-center gap-x-2 w-full hover:bg-slate-700/10 dark:hover:bg-slate-700/50 transition mb-1",
         params?.channelId === channel.id && "bg-slate-700/20 dark:bg-slate-700"
@@ -51,14 +60,14 @@ export const ServerChannel = ({
         <div className="ml-auto flex items-center gap-x-2">
           <ActionTootip label="Edit">
             <Edit2
-              onClick={() => onOpen("editChannel", { server, channel })}
+              onClick={(e) => onAction(e, "editChannel")}
               className="hidden group-hover:block w-4 h-4 text-slate-500
             hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300 transition"
             />
           </ActionTootip>
           <ActionTootip label="Delete">
             <Trash2
-              onClick={() => onOpen("deleteChannel", { server, channel })}
+              onClick={(e) => onAction(e, "deleteChannel")}
               className="hidden group-hover:block w-4 h-4 text-slate-500
             hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300 transition"
             />
