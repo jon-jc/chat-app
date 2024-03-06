@@ -22,6 +22,30 @@ export const FileUpload = ({ onChange, value, endpoint }: FileUploadProps) => {
           onClick={() => onChange("")}
           className="bg-slate-500 text-white p-1 rounded-full absolute top-0 right-0 shaodw-sm"
           type="button"
+        ></button>
+      </div>
+    );
+  }
+
+  if (value && fileType === "pdf") {
+    return (
+      <div
+        className="relative flex items-center p-2 mt-2 rounded-md
+        bg-background/10"
+      >
+        <FileIcon className="h-10 w-10 fill-cyan-200 stroke-cyan-400" />
+        <a
+          href={value}
+          target="_blank"
+          rel="noreferrer noopener"
+          className="ml-2 text-sm text-cyan-500 dark:text-cyan-400 hover:underline"
+        >
+          {value}
+        </a>
+        <button
+          onClick={() => onChange("")}
+          className="bg-slate-500 text-white p-1 rounded-full absolute -top-2 -right-2 shaodw-sm"
+          type="button"
         >
           <X size={20} />
         </button>
