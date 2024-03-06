@@ -51,6 +51,7 @@ export const ServerChannel = ({
         <div className="ml-auto flex items-center gap-x-2">
           <ActionTootip label="Edit">
             <Edit2
+              onClick={() => onOpen("editChannel", { server, channel })}
               className="hidden group-hover:block w-4 h-4 text-slate-500
             hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300 transition"
             />
