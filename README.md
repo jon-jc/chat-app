@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Chat App
 
-## Getting Started
+Fullstack Discord-Inspired Chat Application
+This repository is home to a sophisticated fullstack chat application that mirrors the functionality and aesthetics of Discord. Developed using an array of cutting-edge technologies, this project is built on the robust Next.js 13 framework and leverages the dynamic capabilities of React for the frontend. Real-time communication is enabled through Socket.io, ensuring instant message delivery and interaction. On the backend, Prisma serves as the object-relational mapping (ORM) tool, facilitating smooth data handling with a MySQL database, which is scalable and managed through PlanetScale. TailwindCSS and ShadcnUI are employed to craft an appealing and responsive user interface, while comprehensive authentication is handled by Clerk. This blend of technologies ensures a scalable, secure, and user-friendly chat platform.
 
-First, run the development server:
+Features
+Design and Responsiveness: Aesthetically pleasing and intuitive user interface crafted with TailwindCSS and ShadcnUI, ensuring full responsiveness and mobile compatibility.
+Real-Time Messaging: Instant communication between users with live message updates using Socket.io.
+Private and Group Conversations: Supports one-on-one text and video conversations, along with the ability to create text, audio, and video call channels.
+File Attachments: Ability to send various types of files as attachments in conversations through UploadThing.
+Message Management: Real-time editing and deletion of messages for all users to see immediately.
+User and Server Management: Features for server creation, customization, and member management, including kicking users or changing roles between Guest and Moderator.
+Infinite Scrolling: Implements infinite loading for messages, fetching them in batches for efficient data retrieval using tanstack/query.
+Unique Invitations: Generate and manage unique invite links for a full-fledged invite system.
+Dark and Light Modes: Theme selection for user preference, offering light and dark modes.
+Authentication: Secure user sign-in and registration process managed by Clerk.
+Websocket Fallback: Uses polling as a fallback communication method, complete with alerts for connectivity issues.
+Database and ORM: Utilizes Prisma for ORM capabilities and integrates with a MySQL database provided by PlanetScale for robust data management.
+Prerequisites
+Node version 18.x.x
 
-```bash
+Getting Started
+
+Clone the Repository
+
+Step 1:
+```sh
+git clone https://github.com/jon-jc/chat-app.git
+
+```
+2. Install Dependencies
+```sh
+npm install
+
+```
+3. Configure Environment Variables
+```sh
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+CLERK_SECRET_KEY=
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=
+NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=
+NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=
+
+
+DATABASE_URL=
+
+UPLOADTHING_SECRET=
+UPLOADTHING_APP_ID=
+
+LIVEKIT_API_KEY=
+LIVEKIT_API_SECRET=
+NEXT_PUBLIC_LIVEKIT_URL=
+
+```
+4. Use Prisma
+```sh
+npx prisma generate
+npx prisma db push
+
+```
+5. Start
+```sh
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
