@@ -1,3 +1,5 @@
+# Chat App
+
 Fullstack Discord-Inspired Chat Application
 This repository is home to a sophisticated fullstack chat application that mirrors the functionality and aesthetics of Discord. Developed using an array of cutting-edge technologies, this project is built on the robust Next.js 13 framework and leverages the dynamic capabilities of React for the frontend. Real-time communication is enabled through Socket.io, ensuring instant message delivery and interaction. On the backend, Prisma serves as the object-relational mapping (ORM) tool, facilitating smooth data handling with a MySQL database, which is scalable and managed through PlanetScale. TailwindCSS and ShadcnUI are employed to craft an appealing and responsive user interface, while comprehensive authentication is handled by Clerk. This blend of technologies ensures a scalable, secure, and user-friendly chat platform.
 
