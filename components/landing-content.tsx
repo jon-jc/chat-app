@@ -1,30 +1,28 @@
+"use client";
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const testimonials = [
   {
     name: "Ultimate Collaboration Tools",
-    avatar: "J",
     title: "Seamless Communication",
     description:
       "Dive into instant messaging, voice, and video calls to keep your team connected no matter where they are.",
   },
   {
     name: "Personalized User Experience",
-    avatar: "A",
     title: "Role-Based Permissions",
     description:
       "Manage your community or team with flexible roles and permissions, granting the right access to the right people.",
   },
   {
     name: "Crystal-Clear Voice and Video",
-    avatar: "M",
     title: "Next-Level Communication",
     description:
       "Experience crystal-clear voice and video calls regardless of your location. Our optimized call system ensures that you can connect with your team or community with unmatched clarity and reliability.",
   },
   {
     name: "Dedicated Channels",
-    avatar: "M",
     title: "Organized Conversations",
     description:
       "Organize discussions by topics, projects, or teams in customizable channels, ensuring information stays relevant and accessible.",
