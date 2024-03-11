@@ -12,13 +12,21 @@ Functionality Extensions: Incorporates UploadThing for adding file attachments i
 Key Features:
 
 Responsive Design: Ensures a seamless and engaging user interface across different devices and screen sizes.
+
 Live Messaging: Facilitates instant text, audio, and video communication, ensuring dynamic and real-time user interaction.
+
 Diverse Conversation Options: Supports both one-on-one and group discussions, including capabilities for audio and video conferencing.
+
 Advanced Message Management: Allows users to edit and delete messages instantly, maintaining the flow and accuracy of conversations.
+
 Comprehensive User and Server Management: Provides tools for creating and customizing chat environments and managing user roles and permissions.
+
 Effortless Navigation: Features infinite scrolling for easy message retrieval and uninterrupted conversation history exploration.
+
 Customizable Invitations: Offers a secure invitation system to manage access to private or group chat spaces.
+
 Flexible Theme Selection: Gives users the choice between light and dark modes for personalized visual comfort.
+
 Prerequisites
 Node version 18.x.x
 
