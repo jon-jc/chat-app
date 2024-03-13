@@ -1,6 +1,11 @@
-"use client";
-import { SignUp } from "@clerk/nextjs";
+import SignUp from "@/components/ui/signup";
 
-export default function Page() {
-  return <SignUp afterSignUpUrl="/" />;
-}
+const SignUpPage = () => {
+  return (
+    <div>
+      <SignUp />
+    </div>
+  );
+};
+
+export default SignUpPage;
