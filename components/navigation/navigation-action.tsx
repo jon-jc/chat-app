@@ -3,6 +3,7 @@ import { Plus } from "lucide-react";
 
 import { ActionTootip } from "@/components/action-tooltip";
 import { useModal } from "@/hooks/use-modal-store";
+import Image from "next/image";
 
 export const NavigationAction = () => {
   const { onOpen } = useModal();
@@ -22,6 +23,7 @@ export const NavigationAction = () => {
               className="group-hover:text-white transition text-cyan-500"
               size={30}
             />
+            <Image alt="" src="/icon.png" width={90} height={90} />
           </div>
         </button>
       </ActionTootip>
