@@ -33,13 +33,6 @@ export const LandingHero = () => {
       <div className="text-sm md:text-xl font-light text-zinc-400">
         Your new go-to platform for seamless communication and collaboration.
       </div>
-      {/* <div>
-        <Link href={isSignedIn ? "/" : "/sign-up"}>
-          <Button className="md:text-lg p-4 md:p-6 rounded-full font-semibold bg-gradient-to-tl from-slate-500 to-slate-300 text-white border-0">
-            Start Chatting For Free
-          </Button>
-        </Link>
-      </div> */}
     </div>
   );
 };
